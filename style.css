@@ -396,7 +396,7 @@ body {
     border-radius: 50%;
     background: var(--accent);
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.4);
+    box-shadow: 0 2px 8px rgba(145, 34, 197, 0.4);
     transition: transform 0.2s ease;
 }
 
@@ -411,7 +411,7 @@ body {
     background: var(--accent);
     cursor: pointer;
     border: none;
-    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.4);
+    box-shadow: 0 2px 8px rgba(151, 34, 197, 0.4);
 }
 
 .battery-labels {
