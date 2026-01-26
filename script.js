@@ -1,161 +1,182 @@
 // ============ DADOS DOS APARELHOS ============
 const deviceData = {
-    'iPhone 8G': { storage: [64, 128, 256], basePrice: { 64: 300, 128: 350, 256: 400 }, hasBasePrice: true },
-    'iPhone 8 Plus': { storage: [64, 128, 256], basePrice: { 64: 400, 128: 450, 256: 500 }, hasBasePrice: true },
-    'iPhone X': { storage: [64, 256], basePrice: { 64: 500, 256: 600 }, hasBasePrice: true },
-    'iPhone XS': { storage: [64, 256], basePrice: { 64: 550, 256: 650, 512: 750 }, hasBasePrice: true },
-    'iPhone XS Max': { storage: [64, 256], basePrice: { 64: 650, 128: 750, 512: 850 }, hasBasePrice: true },
-    'iPhone XR': { storage: [64, 128, 256], basePrice: { 64: 450, 128: 500, 256: 550 }, hasBasePrice: true },
-    'iPhone 11': { storage: [64, 128, 256], basePrice: { 64: 500, 128: 550, 256: 600 }, hasBasePrice: true },
-    'iPhone 11 Pro': { storage: [64, 256, 512], basePrice: { 64: 700, 256: 800, 512: 900 }, hasBasePrice: true },
-    'iPhone 11 Pro Max': { storage: [64, 256, 512], basePrice: { 64: 800, 128: 900, 512: 1000 }, hasBasePrice: true },
-    'iPhone 12': { storage: [64, 128, 256], basePrice: { 64: 600, 128: 650, 256: 700 }, hasBasePrice: true },
-    'iPhone 12 Pro': { storage: [128, 256, 512], basePrice: { 128: 800, 256: 900, 512: 1000 }, hasBasePrice: true },
-    'iPhone 12 Pro Max': { storage: [128, 256, 512], basePrice: { 128: 900, 256: 1000, 512: 1100 }, hasBasePrice: true },
-    'iPhone 13': { storage: [128, 256, 512], basePrice: { 128: 650, 256: 700, 512: 800 }, hasBasePrice: true },
-    'iPhone 13 Pro': { storage: [128, 256, 512, 1024], basePrice: { 128: 850, 256: 950, 512: 1050, 1024: 1150 }, hasBasePrice: true },
-    'iPhone 13 Pro Max': { storage: [128, 256, 512, 1024], basePrice: { 128: 950, 256: 1050, 512: 1150, 1024: 1250 }, hasBasePrice: true },
-    'iPhone 14': { storage: [128, 256, 512], basePrice: { 128: 700, 256: 750, 512: 850 }, hasBasePrice: true },
-    'iPhone 14 Pro': { storage: [128, 256, 512, 1024], basePrice: { 128: 900, 256: 1000, 512: 1100, 1024: 1200 }, hasBasePrice: true },
-    'iPhone 14 Pro Max': { storage: [128, 256, 512, 1024], basePrice: { 128: 1000, 256: 1100, 512: 1200, 1024: 1300 }, hasBasePrice: true },
-    'iPhone 15': { storage: [128, 256, 512], basePrice: { 128: 750, 256: 800, 512: 900 }, hasBasePrice: true },
-    'iPhone 15 Pro': { storage: [128, 256, 512, 1024], basePrice: { 128: 950, 256: 1050, 512: 1150, 1024: 1250 }, hasBasePrice: true },
-    'iPhone 15 Pro Max': { storage: [128, 256, 512, 1024], basePrice: { 128: 1050, 256: 1150, 512: 1250, 1024: 1350 }, hasBasePrice: true },
-    'iPhone 16': { storage: [128, 256, 512], basePrice: { 128: 800, 256: 850, 512: 950 }, hasBasePrice: true },
-    'iPhone 16 Pro': { storage: [256, 512, 1024], basePrice: { 256: 1100, 512: 1200, 1024: 1300 }, hasBasePrice: true },
-    'iPhone 16 Pro Max': { storage: [256, 512, 1024], basePrice: { 256: 1200, 512: 1300, 1024: 1400 }, hasBasePrice: true }
+    'iPhone 8': { storage: [64, 128, 256], basePrice: { 64: 300, 128: 350, 256: 400 } },
+    'iPhone 8 Plus': { storage: [64, 128, 256], basePrice: { 64: 400, 128: 450, 256: 500 } },
+    'iPhone X': { storage: [64, 256], basePrice: { 64: 500, 256: 600 } },
+    'iPhone XS': { storage: [64, 256], basePrice: { 64: 550, 256: 650 } },
+    'iPhone XS Max': { storage: [64, 256], basePrice: { 64: 650, 256: 750 } },
+    'iPhone XR': { storage: [64, 128, 256], basePrice: { 64: 450, 128: 500, 256: 550 } },
+    'iPhone 11': { storage: [64, 128, 256], basePrice: { 64: 500, 128: 550, 256: 600 } },
+    'iPhone 11 Pro': { storage: [64, 256, 512], basePrice: { 64: 700, 256: 800, 512: 900 } },
+    'iPhone 11 Pro Max': { storage: [64, 256, 512], basePrice: { 64: 800, 256: 900, 512: 1000 } },
+    'iPhone 12': { storage: [64, 128, 256], basePrice: { 64: 600, 128: 650, 256: 700 } },
+    'iPhone 12 Pro': { storage: [128, 256, 512], basePrice: { 128: 800, 256: 900, 512: 1000 } },
+    'iPhone 12 Pro Max': { storage: [128, 256, 512], basePrice: { 128: 900, 256: 1000, 512: 1100 } },
+    'iPhone 13': { storage: [128, 256, 512], basePrice: { 128: 650, 256: 700, 512: 800 } },
+    'iPhone 13 Pro': { storage: [128, 256, 512, 1024], basePrice: { 128: 850, 256: 950, 512: 1050, 1024: 1150 } },
+    'iPhone 13 Pro Max': { storage: [128, 256, 512, 1024], basePrice: { 128: 950, 256: 1050, 512: 1150, 1024: 1250 } },
+    'iPhone 14': { storage: [128, 256, 512], basePrice: { 128: 700, 256: 750, 512: 850 } },
+    'iPhone 14 Pro': { storage: [128, 256, 512, 1024], basePrice: { 128: 900, 256: 1000, 512: 1100, 1024: 1200 } },
+    'iPhone 14 Pro Max': { storage: [128, 256, 512, 1024], basePrice: { 128: 1000, 256: 1100, 512: 1200, 1024: 1300 } },
+    'iPhone 15': { storage: [128, 256, 512], basePrice: { 128: 750, 256: 800, 512: 900 } },
+    'iPhone 15 Pro': { storage: [128, 256, 512, 1024], basePrice: { 128: 950, 256: 1050, 512: 1150, 1024: 1250 } },
+    'iPhone 15 Pro Max': { storage: [256, 512, 1024], basePrice: { 256: 1150, 512: 1250, 1024: 1350 } },
+    'iPhone 16': { storage: [128, 256, 512], basePrice: { 128: 800, 256: 850, 512: 950 } },
+    'iPhone 16 Pro': { storage: [256, 512, 1024], basePrice: { 256: 1100, 512: 1200, 1024: 1300 } },
+    'iPhone 16 Pro Max': { storage: [256, 512, 1024], basePrice: { 256: 1200, 512: 1300, 1024: 1400 } }
 };
 
 // ============ DEFEITOS POR APARELHO ============
-const defaultDeviceDefects = {
-    'iPhone 8G': {
-        'Tela': -400,
-        'Marcas de Uso': -100,
-        'Tampa Traseira': -80,
-        'Reparo da Placa': -150,
-        'Dock de Carga': -120,
-        'FaceID': -50,
-        'Vidro Frontal': -40,
-        'Auto Falante': -100,
-        'Auricular': -30,
-        'Camera Frontal': -40,
-        'Camera Traseira': -50,
-        'Mancha camera': -80,
-        'Flash': -200,
-        'Botao Power': -250
+const deviceDefects = {
+    'iPhone 8': {
+        'Tela': -400, 'Marcas de Uso': -100, 'Tampa Traseira': -80, 'Reparo da Placa': -150,
+        'Dock de Carga': -120, 'Touch ID': -50, 'Vidro Frontal': -40, 'Alto Falante': -100,
+        'Auricular': -30, 'Camera Frontal': -40, 'Camera Traseira': -50, 'Mancha Camera': -80,
+        'Flash': -200, 'Botao Power': -250
     },
     'iPhone 8 Plus': {
-        'Tela': -500,
-        'Marcas de Uso': -120,
-        'Tampa Traseira': -100,
-        'Reparo da Placa': -180,
-        'Dock de Carga': -150,
-        'FaceID': -60,
-        'Vidro Frontal': -50,
-        'Auto Falante': -120,
-        'Auricular': -40,
-        'Camera Frontal': -50,
-        'Camera Traseira': -60,
-        'Mancha camera': -100,
-        'Flash': -250,
-        'Botao Power': -300
+        'Tela': -500, 'Marcas de Uso': -120, 'Tampa Traseira': -100, 'Reparo da Placa': -180,
+        'Dock de Carga': -150, 'Touch ID': -60, 'Vidro Frontal': -50, 'Alto Falante': -120,
+        'Auricular': -40, 'Camera Frontal': -50, 'Camera Traseira': -60, 'Mancha Camera': -100,
+        'Flash': -250, 'Botao Power': -300
     },
     'iPhone X': {
-        'Tela': -800,
-        'Marcas de Uso': -150,
-        'Tampa Traseira': -120,
-        'Reparo da Placa': -250,
-        'Dock de Carga': -200,
-        'FaceID': -300,
-        'Vidro Frontal': -80,
-        'Auto Falante': -150,
-        'Auricular': -60,
-        'Camera Frontal': -100,
-        'Camera Traseira': -120,
-        'Mancha camera': -150,
-        'Flash': -400,
-        'Botao Power': -400
+        'Tela': -800, 'Marcas de Uso': -150, 'Tampa Traseira': -120, 'Reparo da Placa': -250,
+        'Dock de Carga': -200, 'Face ID': -300, 'Vidro Frontal': -80, 'Alto Falante': -150,
+        'Auricular': -60, 'Camera Frontal': -100, 'Camera Traseira': -120, 'Mancha Camera': -150,
+        'Flash': -400, 'Botao Power': -400
     },
     'iPhone XS': {
-        'Tela': -800,
-        'Marcas de Uso': -150,
-        'Tampa Traseira': -120,
-        'Reparo da Placa': -250,
-        'Dock de Carga': -200,
-        'FaceID': -300,
-        'Vidro Frontal': -80,
-        'Auto Falante': -150,
-        'Auricular': -60,
-        'Camera Frontal': -100,
-        'Camera Traseira': -120,
-        'Mancha camera': -150,
-        'Flash': -400,
-        'Botao Power': -400
+        'Tela': -800, 'Marcas de Uso': -150, 'Tampa Traseira': -120, 'Reparo da Placa': -250,
+        'Dock de Carga': -200, 'Face ID': -300, 'Vidro Frontal': -80, 'Alto Falante': -150,
+        'Auricular': -60, 'Camera Frontal': -100, 'Camera Traseira': -120, 'Mancha Camera': -150,
+        'Flash': -400, 'Botao Power': -400
     },
     'iPhone XS Max': {
-        'Tela': -900,
-        'Marcas de Uso': -180,
-        'Tampa Traseira': -150,
-        'Reparo da Placa': -300,
-        'Dock de Carga': -250,
-        'FaceID': -350,
-        'Vidro Frontal': -100,
-        'Auto Falante': -180,
-        'Auricular': -80,
-        'Camera Frontal': -120,
-        'Camera Traseira': -150,
-        'Mancha camera': -180,
-        'Flash': -500,
-        'Botao Power': -500
+        'Tela': -900, 'Marcas de Uso': -180, 'Tampa Traseira': -150, 'Reparo da Placa': -300,
+        'Dock de Carga': -250, 'Face ID': -350, 'Vidro Frontal': -100, 'Alto Falante': -180,
+        'Auricular': -80, 'Camera Frontal': -120, 'Camera Traseira': -150, 'Mancha Camera': -180,
+        'Flash': -500, 'Botao Power': -500
     },
     'iPhone XR': {
-        'Tela': -600,
-        'Marcas de Uso': -120,
-        'Tampa Traseira': -100,
-        'Reparo da Placa': -200,
-        'Dock de Carga': -150,
-        'FaceID': -60,
-        'Vidro Frontal': -50,
-        'Auto Falante': -120,
-        'Auricular': -40,
-        'Camera Frontal': -60,
-        'Camera Traseira': -80,
-        'Mancha camera': -120,
-        'Flash': -300,
-        'Botao Power': -350
+        'Tela': -600, 'Marcas de Uso': -120, 'Tampa Traseira': -100, 'Reparo da Placa': -200,
+        'Dock de Carga': -150, 'Face ID': -250, 'Vidro Frontal': -50, 'Alto Falante': -120,
+        'Auricular': -40, 'Camera Frontal': -60, 'Camera Traseira': -80, 'Mancha Camera': -120,
+        'Flash': -300, 'Botao Power': -350
     },
     'iPhone 11': {
-        'Tela': -600,
-        'Marcas de Uso': -120,
-        'Tampa Traseira': -100,
-        'Reparo da Placa': -200,
-        'Dock de Carga': -150,
-        'FaceID': -60,
-        'Vidro Frontal': -50,
-        'Auto Falante': -120, 'Auricular': -40, 'Camera Frontal': -60, 'Camera Traseira': -80, 'Mancha camera': -120, 'Flash': -300, 'Botao Power': -350
+        'Tela': -600, 'Marcas de Uso': -120, 'Tampa Traseira': -100, 'Reparo da Placa': -200,
+        'Dock de Carga': -150, 'Face ID': -250, 'Vidro Frontal': -50, 'Alto Falante': -120,
+        'Auricular': -40, 'Camera Frontal': -60, 'Camera Traseira': -80, 'Mancha Camera': -120,
+        'Flash': -300, 'Botao Power': -350
     },
-    'iPhone 11 Pro': { 'Tela': -1000, 'Marcas de Uso': -180, 'Tampa Traseira': -150, 'Reparo da Placa': -300, 'Dock de Carga': -250, 'FaceID': -200, 'Vidro Frontal': -80, 'Auto Falante': -180, 'Auricular': -80, 'Camera Frontal': -120, 'Camera Traseira': -150, 'Mancha camera': -180, 'Flash': -500, 'Botao Power': -500 },
-    'iPhone 11 Pro Max': { 'Tela': -1100, 'Marcas de Uso': -200, 'Tampa Traseira': -180, 'Reparo da Placa': -350, 'Dock de Carga': -300, 'FaceID': -250, 'Vidro Frontal': -100, 'Auto Falante': -200, 'Auricular': -100, 'Camera Frontal': -150, 'Camera Traseira': -180, 'Mancha camera': -220, 'Flash': -600, 'Botao Power': -600 },
-    'iPhone 12': { 'Tela': -800, 'Marcas de Uso': -150, 'Tampa Traseira': -120, 'Reparo da Placa': -250, 'Dock de Carga': -200, 'FaceID': -150, 'Vidro Frontal': -70, 'Auto Falante': -150, 'Auricular': -60, 'Camera Frontal': -100, 'Camera Traseira': -120, 'Mancha camera': -150, 'Flash': -400, 'Botao Power': -450 },
-    'iPhone 12 Pro': { 'Tela': -1200, 'Marcas de Uso': -200, 'Tampa Traseira': -180, 'Reparo da Placa': -350, 'Dock de Carga': -300, 'FaceID': -250, 'Vidro Frontal': -100, 'Auto Falante': -200, 'Auricular': -100, 'Camera Frontal': -150, 'Camera Traseira': -180, 'Mancha camera': -220, 'Flash': -600, 'Botao Power': -600 },
-    'iPhone 12 Pro Max': { 'Tela': -1300, 'Marcas de Uso': -220, 'Tampa Traseira': -200, 'Reparo da Placa': -400, 'Dock de Carga': -350, 'FaceID': -300, 'Vidro Frontal': -120, 'Auto Falante': -220, 'Auricular': -120, 'Camera Frontal': -180, 'Camera Traseira': -220, 'Mancha camera': -250, 'Flash': -700, 'Botao Power': -700 },
-    'iPhone 13': { 'Tela': -900, 'Marcas de Uso': -150, 'Tampa Traseira': -120, 'Reparo da Placa': -250, 'Dock de Carga': -200, 'FaceID': -150, 'Vidro Frontal': -70, 'Auto Falante': -150, 'Auricular': -60, 'Camera Frontal': -100, 'Camera Traseira': -130, 'Mancha camera': -160, 'Flash': -450, 'Botao Power': -500 },
-    'iPhone 13 Pro': { 'Tela': -1500, 'Marcas de Uso': -250, 'Tampa Traseira': -200, 'Reparo da Placa': -400, 'Dock de Carga': -350, 'FaceID': -300, 'Vidro Frontal': -120, 'Auto Falante': -250, 'Auricular': -120, 'Camera Frontal': -200, 'Camera Traseira': -250, 'Mancha camera': -300, 'Flash': -700, 'Botao Power': -700 },
-    'iPhone 13 Pro Max': { 'Tela': -1600, 'Marcas de Uso': -280, 'Tampa Traseira': -250, 'Reparo da Placa': -450, 'Dock de Carga': -400, 'FaceID': -350, 'Vidro Frontal': -150, 'Auto Falante': -280, 'Auricular': -150, 'Camera Frontal': -250, 'Camera Traseira': -300, 'Mancha camera': -350, 'Flash': -800, 'Botao Power': -800 },
-    'iPhone 14': { 'Tela': -1000, 'Marcas de Uso': -150, 'Tampa Traseira': -120, 'Reparo da Placa': -250, 'Dock de Carga': -200, 'FaceID': -150, 'Vidro Frontal': -70, 'Auto Falante': -150, 'Auricular': -70, 'Camera Frontal': -120, 'Camera Traseira': -150, 'Mancha camera': -180, 'Flash': -500, 'Botao Power': -550 },
-    'iPhone 14 Pro': { 'Tela': -1600, 'Marcas de Uso': -250, 'Tampa Traseira': -200, 'Reparo da Placa': -400, 'Dock de Carga': -350, 'FaceID': -300, 'Vidro Frontal': -120, 'Auto Falante': -250, 'Auricular': -130, 'Camera Frontal': -220, 'Camera Traseira': -280, 'Mancha camera': -320, 'Flash': -750, 'Botao Power': -750 },
-    'iPhone 14 Pro Max': { 'Tela': -1700, 'Marcas de Uso': -280, 'Tampa Traseira': -250, 'Reparo da Placa': -450, 'Dock de Carga': -400, 'FaceID': -350, 'Vidro Frontal': -150, 'Auto Falante': -280, 'Auricular': -150, 'Camera Frontal': -280, 'Camera Traseira': -330, 'Mancha camera': -380, 'Flash': -850, 'Botao Power': -850 },
-    'iPhone 15': { 'Tela': -1100, 'Marcas de Uso': -150, 'Tampa Traseira': -120, 'Reparo da Placa': -250, 'Dock de Carga': -200, 'FaceID': -150, 'Vidro Frontal': -70, 'Auto Falante': -150, 'Auricular': -80, 'Camera Frontal': -130, 'Camera Traseira': -160, 'Mancha camera': -200, 'Flash': -550, 'Botao Power': -600 },
-    'iPhone 15 Pro': { 'Tela': -1700, 'Marcas de Uso': -280, 'Tampa Traseira': -250, 'Reparo da Placa': -450, 'Dock de Carga': -400, 'FaceID': -350, 'Vidro Frontal': -150, 'Auto Falante': -280, 'Auricular': -150, 'Camera Frontal': -280, 'Camera Traseira': -330, 'Mancha camera': -380, 'Flash': -850, 'Botao Power': -850 },
-    'iPhone 15 Pro Max': { 'Tela': -1800, 'Marcas de Uso': -300, 'Tampa Traseira': -280, 'Reparo da Placa': -500, 'Dock de Carga': -450, 'FaceID': -400, 'Vidro Frontal': -180, 'Auto Falante': -300, 'Auricular': -180, 'Camera Frontal': -330, 'Camera Traseira': -380, 'Mancha camera': -430, 'Flash': -900, 'Botao Power': -900 },
-    'iPhone 16': { 'Tela': -2000, 'Marcas de Uso': -150, 'Tampa Traseira': -120, 'Reparo da Placa': -250, 'Dock de Carga': -200, 'FaceID': -150, 'Vidro Frontal': -70, 'Auto Falante': -150, 'Auricular': -80, 'Camera Frontal': -150, 'Camera Traseira': -180, 'Mancha camera': -220, 'Flash': -600, 'Botao Power': -650 },
-    'iPhone 16 Pro': { 'Tela': -2200, 'Marcas de Uso': -300, 'Tampa Traseira': -280, 'Reparo da Placa': -500, 'Dock de Carga': -450, 'FaceID': -400, 'Vidro Frontal': -180, 'Auto Falante': -300, 'Auricular': -200, 'Camera Frontal': -330, 'Camera Traseira': -380, 'Mancha camera': -430, 'Flash': -900, 'Botao Power': -900 },
-    'iPhone 16 Pro Max': { 'Tela': -2300, 'Marcas de Uso': -330, 'Tampa Traseira': -300, 'Reparo da Placa': -550, 'Dock de Carga': -500, 'FaceID': -450, 'Vidro Frontal': -200, 'Auto Falante': -330, 'Auricular': -220, 'Camera Frontal': -380, 'Camera Traseira': -430, 'Mancha camera': -480, 'Flash': -1000, 'Botao Power': -1000 }
+    'iPhone 11 Pro': {
+        'Tela': -1000, 'Marcas de Uso': -180, 'Tampa Traseira': -150, 'Reparo da Placa': -300,
+        'Dock de Carga': -250, 'Face ID': -350, 'Vidro Frontal': -80, 'Alto Falante': -180,
+        'Auricular': -80, 'Camera Frontal': -120, 'Camera Traseira': -150, 'Mancha Camera': -180,
+        'Flash': -500, 'Botao Power': -500
+    },
+    'iPhone 11 Pro Max': {
+        'Tela': -1100, 'Marcas de Uso': -200, 'Tampa Traseira': -180, 'Reparo da Placa': -350,
+        'Dock de Carga': -300, 'Face ID': -400, 'Vidro Frontal': -100, 'Alto Falante': -200,
+        'Auricular': -100, 'Camera Frontal': -150, 'Camera Traseira': -180, 'Mancha Camera': -220,
+        'Flash': -600, 'Botao Power': -600
+    },
+    'iPhone 12': {
+        'Tela': -800, 'Marcas de Uso': -150, 'Tampa Traseira': -120, 'Reparo da Placa': -250,
+        'Dock de Carga': -200, 'Face ID': -300, 'Vidro Frontal': -70, 'Alto Falante': -150,
+        'Auricular': -60, 'Camera Frontal': -100, 'Camera Traseira': -120, 'Mancha Camera': -150,
+        'Flash': -400, 'Botao Power': -450
+    },
+    'iPhone 12 Pro': {
+        'Tela': -1200, 'Marcas de Uso': -200, 'Tampa Traseira': -180, 'Reparo da Placa': -350,
+        'Dock de Carga': -300, 'Face ID': -400, 'Vidro Frontal': -100, 'Alto Falante': -200,
+        'Auricular': -100, 'Camera Frontal': -150, 'Camera Traseira': -180, 'Mancha Camera': -220,
+        'Flash': -600, 'Botao Power': -600
+    },
+    'iPhone 12 Pro Max': {
+        'Tela': -1300, 'Marcas de Uso': -220, 'Tampa Traseira': -200, 'Reparo da Placa': -400,
+        'Dock de Carga': -350, 'Face ID': -450, 'Vidro Frontal': -120, 'Alto Falante': -220,
+        'Auricular': -120, 'Camera Frontal': -180, 'Camera Traseira': -220, 'Mancha Camera': -250,
+        'Flash': -700, 'Botao Power': -700
+    },
+    'iPhone 13': {
+        'Tela': -900, 'Marcas de Uso': -150, 'Tampa Traseira': -120, 'Reparo da Placa': -250,
+        'Dock de Carga': -200, 'Face ID': -300, 'Vidro Frontal': -70, 'Alto Falante': -150,
+        'Auricular': -60, 'Camera Frontal': -100, 'Camera Traseira': -130, 'Mancha Camera': -160,
+        'Flash': -450, 'Botao Power': -500
+    },
+    'iPhone 13 Pro': {
+        'Tela': -1500, 'Marcas de Uso': -250, 'Tampa Traseira': -200, 'Reparo da Placa': -400,
+        'Dock de Carga': -350, 'Face ID': -450, 'Vidro Frontal': -120, 'Alto Falante': -250,
+        'Auricular': -120, 'Camera Frontal': -200, 'Camera Traseira': -250, 'Mancha Camera': -300,
+        'Flash': -700, 'Botao Power': -700
+    },
+    'iPhone 13 Pro Max': {
+        'Tela': -1600, 'Marcas de Uso': -280, 'Tampa Traseira': -250, 'Reparo da Placa': -450,
+        'Dock de Carga': -400, 'Face ID': -500, 'Vidro Frontal': -150, 'Alto Falante': -280,
+        'Auricular': -150, 'Camera Frontal': -250, 'Camera Traseira': -300, 'Mancha Camera': -350,
+        'Flash': -800, 'Botao Power': -800
+    },
+    'iPhone 14': {
+        'Tela': -1000, 'Marcas de Uso': -150, 'Tampa Traseira': -120, 'Reparo da Placa': -250,
+        'Dock de Carga': -200, 'Face ID': -300, 'Vidro Frontal': -70, 'Alto Falante': -150,
+        'Auricular': -70, 'Camera Frontal': -120, 'Camera Traseira': -150, 'Mancha Camera': -180,
+        'Flash': -500, 'Botao Power': -550
+    },
+    'iPhone 14 Pro': {
+        'Tela': -1600, 'Marcas de Uso': -250, 'Tampa Traseira': -200, 'Reparo da Placa': -400,
+        'Dock de Carga': -350, 'Face ID': -450, 'Vidro Frontal': -120, 'Alto Falante': -250,
+        'Auricular': -130, 'Camera Frontal': -220, 'Camera Traseira': -280, 'Mancha Camera': -320,
+        'Flash': -750, 'Botao Power': -750
+    },
+    'iPhone 14 Pro Max': {
+        'Tela': -1700, 'Marcas de Uso': -280, 'Tampa Traseira': -250, 'Reparo da Placa': -450,
+        'Dock de Carga': -400, 'Face ID': -500, 'Vidro Frontal': -150, 'Alto Falante': -280,
+        'Auricular': -150, 'Camera Frontal': -280, 'Camera Traseira': -330, 'Mancha Camera': -380,
+        'Flash': -850, 'Botao Power': -850
+    },
+    'iPhone 15': {
+        'Tela': -1100, 'Marcas de Uso': -150, 'Tampa Traseira': -120, 'Reparo da Placa': -250,
+        'Dock de Carga': -200, 'Face ID': -300, 'Vidro Frontal': -70, 'Alto Falante': -150,
+        'Auricular': -80, 'Camera Frontal': -130, 'Camera Traseira': -160, 'Mancha Camera': -200,
+        'Flash': -550, 'Botao Power': -600
+    },
+    'iPhone 15 Pro': {
+        'Tela': -1700, 'Marcas de Uso': -280, 'Tampa Traseira': -250, 'Reparo da Placa': -450,
+        'Dock de Carga': -400, 'Face ID': -500, 'Vidro Frontal': -150, 'Alto Falante': -280,
+        'Auricular': -150, 'Camera Frontal': -280, 'Camera Traseira': -330, 'Mancha Camera': -380,
+        'Flash': -850, 'Botao Power': -850
+    },
+    'iPhone 15 Pro Max': {
+        'Tela': -1800, 'Marcas de Uso': -300, 'Tampa Traseira': -280, 'Reparo da Placa': -500,
+        'Dock de Carga': -450, 'Face ID': -550, 'Vidro Frontal': -180, 'Alto Falante': -300,
+        'Auricular': -180, 'Camera Frontal': -330, 'Camera Traseira': -380, 'Mancha Camera': -430,
+        'Flash': -900, 'Botao Power': -900
+    },
+    'iPhone 16': {
+        'Tela': -2000, 'Marcas de Uso': -150, 'Tampa Traseira': -120, 'Reparo da Placa': -250,
+        'Dock de Carga': -200, 'Face ID': -300, 'Vidro Frontal': -70, 'Alto Falante': -150,
+        'Auricular': -80, 'Camera Frontal': -150, 'Camera Traseira': -180, 'Mancha Camera': -220,
+        'Flash': -600, 'Botao Power': -650
+    },
+    'iPhone 16 Pro': {
+        'Tela': -2200, 'Marcas de Uso': -300, 'Tampa Traseira': -280, 'Reparo da Placa': -500,
+        'Dock de Carga': -450, 'Face ID': -550, 'Vidro Frontal': -180, 'Alto Falante': -300,
+        'Auricular': -200, 'Camera Frontal': -330, 'Camera Traseira': -380, 'Mancha Camera': -430,
+        'Flash': -900, 'Botao Power': -900
+    },
+    'iPhone 16 Pro Max': {
+        'Tela': -2300, 'Marcas de Uso': -330, 'Tampa Traseira': -300, 'Reparo da Placa': -550,
+        'Dock de Carga': -500, 'Face ID': -600, 'Vidro Frontal': -200, 'Alto Falante': -330,
+        'Auricular': -220, 'Camera Frontal': -380, 'Camera Traseira': -430, 'Mancha Camera': -480,
+        'Flash': -1000, 'Botao Power': -1000
+    }
 };
 
 // ============ LIMIARES DE BATERIA ============
-const defaultBatteryThresholds = {
-    'iPhone 8G': { limit: 80, discount: -100 },
+const batteryThresholds = {
+    'iPhone 8': { limit: 80, discount: -100 },
     'iPhone 8 Plus': { limit: 80, discount: -120 },
     'iPhone X': { limit: 85, discount: -150 },
     'iPhone XS': { limit: 85, discount: -150 },
@@ -181,471 +202,407 @@ const defaultBatteryThresholds = {
     'iPhone 16 Pro Max': { limit: 90, discount: -380 }
 };
 
+// ============ TABELA HIPERCARD DE MULTIPLICADORES ============
+const installmentMultipliers = {
+    1: 1.0334849111202976,
+    2: 1.0488777008600796,
+    3: 1.0574177857671566,
+    4: 1.0659844366272252,
+    5: 1.0744600838078866,
+    6: 1.0830715910321672,
+    7: 1.0901558922925978,
+    8: 1.0987803538072738,
+    9: 1.1075423634954038,
+    10: 1.1161960040183056,
+    11: 1.1251125112511252,
+    12: 1.1339154099104208,
+    13: 1.1428571428571428,
+    14: 1.1518083390923752,
+    15: 1.1607661056297156,
+    16: 1.169864295741694,
+    17: 1.1789672247111532,
+    18: 1.1880717595342758
+};
+
 // ============ APP STATE ============
 let appState = {
-    currentUser: null,
     currentDevice: null,
     selectedStorage: null,
     selectedDefects: {},
     batteryHealth: 100,
-    deviceDefects: JSON.parse(localStorage.getItem('deviceDefects')) || defaultDeviceDefects,
-    devicePrices: JSON.parse(localStorage.getItem('devicePrices')) || {},
-    batteryThresholds: JSON.parse(localStorage.getItem('batteryThresholds')) || defaultBatteryThresholds
+    basePrice: 0,
+    finalValue: 0,
+    targetValue: 0
 };
 
 // ============ DOM ELEMENTS ============
-const userSelectionPanel = document.getElementById('userSelection');
-const mainPanel = document.getElementById('mainPanel');
-const devPanel = document.getElementById('devPanel');
 const deviceSelect = document.getElementById('deviceSelect');
-const devDeviceSelect = document.getElementById('devDeviceSelect');
+const storageCard = document.getElementById('storageCard');
 const storageOptions = document.getElementById('storageOptions');
+const valueCard = document.getElementById('valueCard');
+const currentValueEl = document.getElementById('currentValue');
+const defectsCard = document.getElementById('defectsCard');
 const defectsContainer = document.getElementById('defectsContainer');
-const currentValue = document.getElementById('currentValue');
-const finalValue = document.getElementById('finalValue');
-const batteryHealth = document.getElementById('batteryHealth');
-const backBtn = document.getElementById('backBtn');
-const backBtnDev = document.getElementById('backBtnDev');
+const batteryCard = document.getElementById('batteryCard');
+const batteryHealthInput = document.getElementById('batteryHealth');
+const batterySlider = document.getElementById('batterySlider');
+const finalCard = document.getElementById('finalCard');
+const finalValueEl = document.getElementById('finalValue');
 const summaryContent = document.getElementById('summaryContent');
-const pricesContainer = document.getElementById('pricesContainer');
-const defectsConfigContainer = document.getElementById('defectsConfigContainer');
-const savePricesBtn = document.getElementById('savePricesBtn');
-const saveBatteryBtn = document.getElementById('saveBatteryBtn');
-const saveDefectsBtn = document.getElementById('saveDefectsBtn');
-const exportBtn = document.getElementById('exportBtn');
-const importBtn = document.getElementById('importBtn');
-const fileInput = document.getElementById('fileInput');
+const differenceCard = document.getElementById('differenceCard');
+const targetValueInput = document.getElementById('targetValue');
+const differenceResult = document.getElementById('differenceResult');
+const differenceAmount = document.getElementById('differenceAmount');
+const installmentsCard = document.getElementById('installmentsCard');
+const installmentsGrid = document.getElementById('installmentsGrid');
+const customInstallmentsInput = document.getElementById('customInstallments');
+const customResult = document.getElementById('customResult');
+const customCount = document.getElementById('customCount');
+const customValue = document.getElementById('customValue');
+const customTotal = document.getElementById('customTotal');
 
-// ============ EVENT LISTENERS - USER SELECTION ============
-document.querySelectorAll('.user-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const user = btn.dataset.user;
-        appState.currentUser = user;
-        userSelectionPanel.style.display = 'none';
+// ============ INITIALIZE ============
+function init() {
+    populateDeviceSelect();
+    setupEventListeners();
+}
 
-        if (user === 'Yuri') {
-            devPanel.style.display = 'flex';
-        } else {
-            mainPanel.style.display = 'flex';
-        }
-    });
-});
-
-backBtn.addEventListener('click', () => {
-    mainPanel.style.display = 'none';
-    userSelectionPanel.style.display = 'flex';
-    backToUserSelection();
-});
-
-backBtnDev.addEventListener('click', () => {
-    devPanel.style.display = 'none';
-    userSelectionPanel.style.display = 'flex';
-    pricesContainer.innerHTML = '';
-    defectsConfigContainer.innerHTML = '';
-    const batteryConfigContainer = document.getElementById('batteryConfigContainer');
-    if (batteryConfigContainer) batteryConfigContainer.innerHTML = '';
-});
-
-// ============ POPULATE DEVICE SELECTS ============
-function populateDeviceSelects() {
-    const devices = Object.keys(defaultDeviceDefects);
-
-    deviceSelect.innerHTML = '<option value="">Selecione um aparelho</option>';
-    devDeviceSelect.innerHTML = '<option value="">Selecione um aparelho</option>';
-
+// ============ POPULATE DEVICE SELECT ============
+function populateDeviceSelect() {
+    const devices = Object.keys(deviceData);
     devices.forEach(device => {
-        deviceSelect.innerHTML += `<option value="${device}">${device}</option>`;
-        devDeviceSelect.innerHTML += `<option value="${device}">${device}</option>`;
+        const option = document.createElement('option');
+        option.value = device;
+        option.textContent = device;
+        deviceSelect.appendChild(option);
     });
 }
 
-// ============ USER PANEL - DEVICE SELECTION ============
-deviceSelect.addEventListener('change', (e) => {
+// ============ EVENT LISTENERS ============
+function setupEventListeners() {
+    // Device selection
+    deviceSelect.addEventListener('change', handleDeviceChange);
+    
+    // Battery inputs
+    batteryHealthInput.addEventListener('input', handleBatteryInput);
+    batterySlider.addEventListener('input', handleBatterySlider);
+    
+    // Target value for difference
+    targetValueInput.addEventListener('input', handleTargetValueChange);
+    
+    // Custom installments
+    customInstallmentsInput.addEventListener('input', handleCustomInstallments);
+}
+
+// ============ HANDLERS ============
+function handleDeviceChange(e) {
     const device = e.target.value;
-    if (device) {
-        appState.currentDevice = device;
-        populateStorage(device);
-        populateDefects(device);
-        calculateValue();
-    } else {
-        storageOptions.innerHTML = '';
-        defectsContainer.innerHTML = '';
-        appState.selectedDefects = {};
+    
+    if (!device) {
+        hideAllCards();
+        resetState();
+        return;
     }
-});
+    
+    appState.currentDevice = device;
+    appState.selectedStorage = null;
+    appState.selectedDefects = {};
+    appState.batteryHealth = 100;
+    
+    populateStorage(device);
+    populateDefects(device);
+    
+    showCard(storageCard);
+    showCard(defectsCard);
+    showCard(batteryCard);
+    
+    batteryHealthInput.value = 100;
+    batterySlider.value = 100;
+    
+    calculateValue();
+}
+
+function handleBatteryInput(e) {
+    let value = parseInt(e.target.value) || 0;
+    value = Math.max(0, Math.min(100, value));
+    appState.batteryHealth = value;
+    batterySlider.value = value;
+    calculateValue();
+}
+
+function handleBatterySlider(e) {
+    const value = parseInt(e.target.value);
+    appState.batteryHealth = value;
+    batteryHealthInput.value = value;
+    calculateValue();
+}
+
+function handleTargetValueChange(e) {
+    const value = parseFloat(e.target.value) || 0;
+    appState.targetValue = value;
+    calculateDifference();
+}
+
+function handleCustomInstallments(e) {
+    let value = parseInt(e.target.value) || 0;
+    value = Math.max(1, Math.min(18, value));
+    
+    if (value >= 1 && value <= 18 && appState.targetValue > appState.finalValue) {
+        const difference = appState.targetValue - appState.finalValue;
+        const installment = calculateInstallment(difference, value);
+        
+        customCount.textContent = `${value}x`;
+        customValue.textContent = formatCurrency(installment.parcelaValor);
+        customTotal.textContent = `Total: ${formatCurrency(installment.totalFinal)}`;
+        customResult.style.display = 'block';
+    } else {
+        customResult.style.display = 'none';
+    }
+}
 
 // ============ POPULATE STORAGE ============
 function populateStorage(device) {
     const deviceInfo = deviceData[device];
-    if (!deviceInfo) return;
-
     storageOptions.innerHTML = '';
-
+    
     deviceInfo.storage.forEach(storage => {
-        const price = appState.devicePrices[device]?.[storage] || deviceInfo.basePrice[storage] || 0;
-
-        const label = document.createElement('label');
-        label.className = 'radio-label';
-        label.innerHTML = `
-            <input type="radio" name="storage" value="${storage}">
-            <span>${storage}GB - R$ ${price}</span>
+        const price = deviceInfo.basePrice[storage];
+        const btn = document.createElement('button');
+        btn.className = 'storage-btn';
+        btn.innerHTML = `
+            <span class="storage-size">${storage}GB</span>
+            <span class="storage-price">${formatCurrency(price)}</span>
         `;
-        label.addEventListener('change', () => {
-            appState.selectedStorage = storage;
-            calculateValue();
-        });
-        storageOptions.appendChild(label);
+        btn.addEventListener('click', () => selectStorage(storage, btn));
+        storageOptions.appendChild(btn);
     });
 }
 
-// ============ POPULATE DEFECTS - USER PANEL ============
+function selectStorage(storage, btn) {
+    // Remove active class from all buttons
+    document.querySelectorAll('.storage-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    appState.selectedStorage = storage;
+    appState.basePrice = deviceData[appState.currentDevice].basePrice[storage];
+    
+    showCard(valueCard);
+    calculateValue();
+}
+
+// ============ POPULATE DEFECTS ============
 function populateDefects(device) {
-    const defects = appState.deviceDefects[device];
-    if (!defects) return;
-
+    const defects = deviceDefects[device];
     defectsContainer.innerHTML = '';
-
+    
     Object.entries(defects).forEach(([defectName, defectValue]) => {
-        const label = document.createElement('label');
-        label.className = 'defect-label';
-        label.innerHTML = `
-            <input type="checkbox" value="${defectName}" data-value="${defectValue}">
-            <span>${defectName}</span>
-            <span class="defect-value">${defectValue}</span>
+        const item = document.createElement('div');
+        item.className = 'defect-item';
+        item.innerHTML = `
+            <div class="defect-checkbox">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+            <div class="defect-info">
+                <span class="defect-name">${defectName}</span>
+                <span class="defect-value">${formatCurrency(defectValue)}</span>
+            </div>
         `;
-        label.addEventListener('change', (e) => {
-            if (e.target.checked) {
-                appState.selectedDefects[defectName] = defectValue;
-            } else {
-                delete appState.selectedDefects[defectName];
-            }
-            calculateValue();
-        });
-        defectsContainer.appendChild(label);
+        
+        item.addEventListener('click', () => toggleDefect(defectName, defectValue, item));
+        defectsContainer.appendChild(item);
     });
 }
 
-// ============ PRICE CALCULATION ============
+function toggleDefect(defectName, defectValue, item) {
+    if (appState.selectedDefects[defectName] !== undefined) {
+        delete appState.selectedDefects[defectName];
+        item.classList.remove('selected');
+    } else {
+        appState.selectedDefects[defectName] = defectValue;
+        item.classList.add('selected');
+    }
+    calculateValue();
+}
+
+// ============ CALCULATE VALUE ============
 function calculateValue() {
-    if (!appState.currentDevice || !appState.selectedStorage) return;
-
-    const deviceInfo = deviceData[appState.currentDevice];
-    const basePrice = appState.devicePrices[appState.currentDevice]?.[appState.selectedStorage] ||
-        deviceInfo.basePrice[appState.selectedStorage] || 0;
-
+    if (!appState.currentDevice || !appState.selectedStorage) {
+        currentValueEl.textContent = formatCurrency(0);
+        finalValueEl.textContent = formatCurrency(0);
+        return;
+    }
+    
+    const basePrice = appState.basePrice;
+    
+    // Calculate defects discount
     let defectDiscount = 0;
     Object.values(appState.selectedDefects).forEach(value => {
         defectDiscount += value;
     });
-
+    
+    // Calculate battery discount
     let batteryDiscount = 0;
-    const threshold = appState.batteryThresholds[appState.currentDevice];
+    const threshold = batteryThresholds[appState.currentDevice];
     if (threshold && appState.batteryHealth < threshold.limit) {
         batteryDiscount = threshold.discount;
     }
-
-    const finalPrice = basePrice + defectDiscount + batteryDiscount;
-
-    currentValue.textContent = basePrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    finalValue.textContent = Math.max(0, finalPrice).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
+    
+    const finalPrice = Math.max(0, basePrice + defectDiscount + batteryDiscount);
+    appState.finalValue = finalPrice;
+    
+    // Update displays
+    currentValueEl.textContent = formatCurrency(basePrice);
+    finalValueEl.textContent = formatCurrency(finalPrice);
+    
+    // Update summary
     updateSummary(basePrice, defectDiscount, batteryDiscount, finalPrice);
+    
+    // Show cards
+    showCard(finalCard);
+    showCard(differenceCard);
+    
+    // Recalculate difference if target value is set
+    if (appState.targetValue > 0) {
+        calculateDifference();
+    }
 }
 
-function updateSummary(base, defects, battery, final) {
+// ============ UPDATE SUMMARY ============
+function updateSummary(basePrice, defectDiscount, batteryDiscount, finalPrice) {
+    const selectedDefectsList = Object.keys(appState.selectedDefects);
+    
+    let defectsText = 'Nenhum';
+    if (selectedDefectsList.length > 0) {
+        defectsText = selectedDefectsList.length > 2 
+            ? `${selectedDefectsList.slice(0, 2).join(', ')} +${selectedDefectsList.length - 2}`
+            : selectedDefectsList.join(', ');
+    }
+    
     summaryContent.innerHTML = `
         <div class="summary-row">
-            <span>Valor Base:</span>
-            <span>${base.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
+            <span>Valor Base</span>
+            <span>${formatCurrency(basePrice)}</span>
         </div>
-        <div class="summary-row">
-            <span>Defeitos:</span>
-            <span>${defects.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
+        <div class="summary-row discount">
+            <span>Defeitos (${defectsText})</span>
+            <span>${formatCurrency(defectDiscount)}</span>
         </div>
-        <div class="summary-row">
-            <span>Bateria (${appState.batteryHealth}%):</span>
-            <span>${battery.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
+        <div class="summary-row discount">
+            <span>Bateria (${appState.batteryHealth}%)</span>
+            <span>${formatCurrency(batteryDiscount)}</span>
         </div>
-        <div class="summary-row summary-total">
-            <span>TOTAL:</span>
-            <span>${Math.max(0, final).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
-        </div>
-    `;
-}
-
-batteryHealth.addEventListener('input', () => {
-    appState.batteryHealth = parseInt(batteryHealth.value) || 100;
-    calculateValue();
-});
-
-// ============ DEV PANEL - PRICES ============
-function populateDevPrices(device) {
-    pricesContainer.innerHTML = '<div class="price-header">Configurar Preços por Armazenamento</div>';
-
-    const deviceInfo = deviceData[device];
-    const prices = appState.devicePrices[device] || {};
-
-    deviceInfo.storage.forEach(storage => {
-        const item = document.createElement('div');
-        item.className = 'price-item';
-
-        const label = document.createElement('label');
-        label.textContent = `${storage}GB`;
-
-        const input = document.createElement('input');
-        input.type = 'number';
-        input.id = `price-${storage}`;
-        input.className = 'glass-input';
-        input.value = prices[storage] || deviceInfo.basePrice[storage] || 0;
-        input.placeholder = `Preço ${storage}GB`;
-
-        // Sincronização em tempo real
-        input.addEventListener('input', () => {
-            if (!appState.devicePrices[device]) {
-                appState.devicePrices[device] = {};
-            }
-            appState.devicePrices[device][storage] = parseInt(input.value) || 0;
-            localStorage.setItem('devicePrices', JSON.stringify(appState.devicePrices));
-            console.log("[v0] Preço atualizado:", device, storage, appState.devicePrices[device][storage]);
-        });
-
-        item.appendChild(label);
-        item.appendChild(input);
-        pricesContainer.appendChild(item);
-    });
-}
-
-savePricesBtn.addEventListener('click', () => {
-    const device = devDeviceSelect.value;
-    if (!device) return;
-    showNotification('Preços salvos com sucesso!');
-});
-
-// ============ DEV PANEL - DEFECTS ============
-function populateDevDefects(device) {
-    const defects = appState.deviceDefects[device];
-    defectsConfigContainer.innerHTML = '<div class="defects-header">Configurar Valores de Defeitos</div>';
-
-    Object.entries(defects).forEach(([defectName, defectValue]) => {
-        const item = document.createElement('div');
-        item.className = 'defect-config-item';
-
-        const label = document.createElement('label');
-        label.className = 'defect-config-label';
-        label.textContent = defectName;
-
-        const input = document.createElement('input');
-        input.type = 'number';
-        input.id = `defect-${defectName}`;
-        input.className = 'glass-input';
-        input.value = defectValue;
-        input.placeholder = 'Valor do defeito';
-
-        // Sincronização em tempo real
-        input.addEventListener('input', () => {
-            appState.deviceDefects[device][defectName] = parseInt(input.value) || 0;
-            localStorage.setItem('deviceDefects', JSON.stringify(appState.deviceDefects));
-            console.log("[v0] Defeito atualizado:", device, defectName, appState.deviceDefects[device][defectName]);
-        });
-
-        item.appendChild(label);
-        item.appendChild(input);
-        defectsConfigContainer.appendChild(item);
-    });
-}
-
-saveDefectsBtn.addEventListener('click', () => {
-    const device = devDeviceSelect.value;
-    if (!device) return;
-    showNotification('Defeitos salvos com sucesso!');
-});
-
-// ============ DEV PANEL - BATTERY THRESHOLDS ============
-function populateBatteryThresholdConfig(device) {
-    const container = document.getElementById('batteryConfigContainer');
-    if (!container) return;
-
-    const threshold = appState.batteryThresholds[device] || { limit: 80, discount: -100 };
-
-    container.innerHTML = `
-        <div class="battery-config-item">
-            <label>Limite de Bateria (%)</label>
-            <input type="number" id="battery-limit" class="glass-input" value="${threshold.limit}" min="0" max="100">
-        </div>
-        <div class="battery-config-item">
-            <label>Desconto (valor negativo)</label>
-            <input type="number" id="battery-discount" class="glass-input" value="${threshold.discount}">
+        <div class="summary-row total">
+            <span>Valor Final</span>
+            <span>${formatCurrency(finalPrice)}</span>
         </div>
     `;
-
-    // Sincronização em tempo real
-    const limitInput = document.getElementById('battery-limit');
-    const discountInput = document.getElementById('battery-discount');
-
-    limitInput.addEventListener('input', () => {
-        appState.batteryThresholds[device].limit = parseInt(limitInput.value) || 80;
-        localStorage.setItem('batteryThresholds', JSON.stringify(appState.batteryThresholds));
-        console.log("[v0] Limite de bateria atualizado:", device, appState.batteryThresholds[device].limit);
-    });
-
-    discountInput.addEventListener('input', () => {
-        appState.batteryThresholds[device].discount = parseInt(discountInput.value) || -100;
-        localStorage.setItem('batteryThresholds', JSON.stringify(appState.batteryThresholds));
-        console.log("[v0] Desconto de bateria atualizado:", device, appState.batteryThresholds[device].discount);
-    });
 }
 
-saveBatteryBtn.addEventListener('click', () => {
-    const device = devDeviceSelect.value;
-    if (!device) return;
-    showNotification('Limiar de bateria salvo com sucesso!');
-});
-
-// ============ DEV PANEL - DEVICE SELECT ============
-devDeviceSelect.addEventListener('change', (e) => {
-    const device = e.target.value;
-    if (device) {
-        populateDevPrices(device);
-        populateDevDefects(device);
-        populateBatteryThresholdConfig(device);
-    } else {
-        pricesContainer.innerHTML = '';
-        defectsConfigContainer.innerHTML = '';
-        const batteryConfigContainer = document.getElementById('batteryConfigContainer');
-        if (batteryConfigContainer) batteryConfigContainer.innerHTML = '';
+// ============ CALCULATE DIFFERENCE ============
+function calculateDifference() {
+    if (appState.targetValue <= 0) {
+        differenceResult.style.display = 'none';
+        installmentsCard.style.display = 'none';
+        return;
     }
-});
+    
+    const difference = appState.targetValue - appState.finalValue;
+    
+    differenceAmount.textContent = formatCurrency(Math.max(0, difference));
+    differenceResult.style.display = 'block';
+    
+    if (difference > 0) {
+        calculateAndShowInstallments(difference);
+        showCard(installmentsCard);
+    } else {
+        installmentsCard.style.display = 'none';
+    }
+}
 
-// ============ EXPORT/IMPORT ============
-function exportData() {
-    const data = {
-        devicePrices: appState.devicePrices,
-        deviceDefects: appState.deviceDefects,
-        batteryThresholds: appState.batteryThresholds,
-        exportedAt: new Date().toISOString()
+// ============ CALCULATE INSTALLMENT ============
+function calculateInstallment(value, parcelas) {
+    const multiplier = installmentMultipliers[parcelas];
+    const totalComJuros = value * multiplier;
+    const parcelaCalculada = totalComJuros / parcelas;
+    
+    // Arredondar para cima para inteiro
+    const parcelaValor = Math.ceil(parcelaCalculada);
+    
+    // Recalcular total final
+    const totalFinal = parcelaValor * parcelas;
+    
+    return {
+        parcelas,
+        parcelaValor,
+        totalFinal,
+        multiplier
     };
-
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `dados_iphone_${new Date().toISOString().slice(0, 10)}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
 }
 
-exportBtn.addEventListener('click', exportData);
+// ============ CALCULATE AND SHOW INSTALLMENTS ============
+function calculateAndShowInstallments(difference) {
+    const fixedInstallments = [10, 12, 18];
+    installmentsGrid.innerHTML = '';
+    
+    fixedInstallments.forEach(parcelas => {
+        const result = calculateInstallment(difference, parcelas);
+        
+        const card = document.createElement('div');
+        card.className = 'installment-card';
+        card.innerHTML = `
+            <div class="installment-detail">
+                <span class="installment-count">${result.parcelas}x</span>
+                <span class="installment-value">${formatCurrency(result.parcelaValor)}</span>
+            </div>
+            <span class="installment-total">Total: ${formatCurrency(result.totalFinal)}</span>
+        `;
+        installmentsGrid.appendChild(card);
+    });
+    
+    // Reset custom installment
+    customInstallmentsInput.value = '';
+    customResult.style.display = 'none';
+}
 
-importBtn.addEventListener('click', () => fileInput.click());
+// ============ UTILITY FUNCTIONS ============
+function formatCurrency(value) {
+    return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
 
-fileInput.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
+function showCard(card) {
+    card.style.display = 'block';
+    card.classList.add('show');
+}
 
-    const reader = new FileReader();
-    reader.onload = (event) => {
-        try {
-            const data = JSON.parse(event.target.result);
+function hideAllCards() {
+    [storageCard, valueCard, defectsCard, batteryCard, finalCard, differenceCard, installmentsCard].forEach(card => {
+        card.style.display = 'none';
+        card.classList.remove('show');
+    });
+}
 
-            if (data.devicePrices && data.deviceDefects && data.batteryThresholds) {
-                appState.devicePrices = data.devicePrices;
-                appState.deviceDefects = data.deviceDefects;
-                appState.batteryThresholds = data.batteryThresholds;
-
-                localStorage.setItem('devicePrices', JSON.stringify(appState.devicePrices));
-                localStorage.setItem('deviceDefects', JSON.stringify(appState.deviceDefects));
-                localStorage.setItem('batteryThresholds', JSON.stringify(appState.batteryThresholds));
-
-                showNotification('Dados importados com sucesso! Recarregue a página.');
-            } else {
-                showNotification('Arquivo inválido!');
-            }
-        } catch (error) {
-            showNotification('Erro ao importar arquivo!');
-        }
+function resetState() {
+    appState = {
+        currentDevice: null,
+        selectedStorage: null,
+        selectedDefects: {},
+        batteryHealth: 100,
+        basePrice: 0,
+        finalValue: 0,
+        targetValue: 0
     };
-    reader.readAsText(file);
-});
-
-// ============ EXPORT CODE WITH UPDATED DEFAULTS ============
-function exportCodeAsJavaScript() {
-    // Gera o conteúdo do defaultDeviceDefects atualizado
-    let defectsCode = 'const defaultDeviceDefects = {\n';
     
-    Object.entries(appState.deviceDefects).forEach(([device, defects], index) => {
-        defectsCode += `    '${device}': {\n`;
-        Object.entries(defects).forEach(([defectName, value], defectIndex) => {
-            const comma = defectIndex < Object.entries(defects).length - 1 ? ',' : '';
-            defectsCode += `        '${defectName}': ${value}${comma}\n`;
-        });
-        const comma = index < Object.entries(appState.deviceDefects).length - 1 ? ',' : '';
-        defectsCode += `    }${comma}\n`;
-    });
-    defectsCode += '};\n\n';
-
-    // Gera o conteúdo do defaultBatteryThresholds atualizado
-    let batteryCode = 'const defaultBatteryThresholds = {\n';
-    Object.entries(appState.batteryThresholds).forEach(([device, threshold], index) => {
-        const comma = index < Object.entries(appState.batteryThresholds).length - 1 ? ',' : '';
-        batteryCode += `    '${device}': { limit: ${threshold.limit}, discount: ${threshold.discount} }${comma}\n`;
-    });
-    batteryCode += '};\n\n';
-
-    // Gera o conteúdo dos preços
-    let pricesCode = 'const defaultDevicePrices = {\n';
-    Object.entries(appState.devicePrices).forEach(([device, prices], index) => {
-        const comma = index < Object.entries(appState.devicePrices).length - 1 ? ',' : '';
-        pricesCode += `    '${device}': {\n`;
-        Object.entries(prices).forEach(([storage, price], priceIndex) => {
-            const priceComma = priceIndex < Object.entries(prices).length - 1 ? ',' : '';
-            pricesCode += `        ${storage}: ${price}${priceComma}\n`;
-        });
-        pricesCode += `    }${comma}\n`;
-    });
-    pricesCode += '};\n\n';
-
-    // Cria mensagem com instruções
-    const message = `Código atualizado gerado!\n\nSubstituir no seu script.js:\n\n1. Encontre: const defaultDeviceDefects = { ... };\n2. Encontre: const defaultBatteryThresholds = { ... };\n3. Encontre: const defaultDevicePrices = { ... };\n\nE copie o código abaixo:\n\n---\n\n${defectsCode}${batteryCode}${pricesCode}---\n\nArquivo completo será baixado como 'script-atualizado.js'`;
-    
-    // Copia para o clipboard
-    const fullContent = `// ============ DEFEITOS POR APARELHO ============\n${defectsCode}// ============ BATERIA THRESHOLDS ============\n${batteryCode}// ============ PREÇOS PADRÃO ============\n${pricesCode}`;
-    
-    const blob = new Blob([fullContent], { type: 'text/javascript' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'script-atualizado.js';
-    a.click();
-    URL.revokeObjectURL(url);
-    
-    showNotification('Script atualizado exportado como "script-atualizado.js"!');
-}
-
-// Event listener para o botão de exportação
-const exportCodeBtn = document.getElementById('exportCodeBtn');
-if (exportCodeBtn) {
-    exportCodeBtn.addEventListener('click', exportCodeAsJavaScript);
-}
-
-// ============ UTILITIES ============
-function backToUserSelection() {
-    appState.currentUser = null;
-    appState.currentDevice = null;
-    appState.selectedStorage = null;
-    appState.selectedDefects = {};
-    appState.batteryHealth = 100;
-
-    deviceSelect.value = '';
     storageOptions.innerHTML = '';
     defectsContainer.innerHTML = '';
-    batteryHealth.value = 100;
+    batteryHealthInput.value = 100;
+    batterySlider.value = 100;
+    targetValueInput.value = '';
+    customInstallmentsInput.value = '';
+    differenceResult.style.display = 'none';
+    customResult.style.display = 'none';
 }
 
-function showNotification(message) {
-    alert(message);
-}
-
-// ============ INITIALIZE ============
-document.addEventListener('DOMContentLoaded', () => {
-    populateDeviceSelects();
-});
+// ============ INITIALIZE ON DOM READY ============
+document.addEventListener('DOMContentLoaded', init);

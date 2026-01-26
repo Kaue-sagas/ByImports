@@ -3,239 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iPhone Avaliador - Pré Avaliação de Valores</title>
+    <title>ByImports - Avaliador de iPhone</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Seleção de Usuário -->
-        <div id="userSelection" class="glass-panel user-selection-panel">
-            <div class="glass-content">
-                <h1 class="title">iPhone Avaliador</h1>
-                <p class="subtitle">Selecione seu usuário para continuar</p>
-                
-                <div class="users-grid">
-                    <button class="user-btn glass-button" data-user="Kaue">
-                        <svg class="user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        <span class="user-name">Kaue</span>
-                    </button>
-                    <button class="user-btn glass-button" data-user="Kalyu">
-                        <svg class="user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        <span class="user-name">Kalyu</span>
-                    </button>
-                    <button class="user-btn glass-button" data-user="Laura">
-                        <svg class="user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        <span class="user-name">Laura</span>
-                    </button>
-                    <button class="user-btn glass-button" data-user="Isabelle">
-                        <svg class="user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        <span class="user-name">Isabelle</span>
-                    </button>
-                    <button class="user-btn glass-button" data-user="Marcielle">
-                        <svg class="user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        <span class="user-name">Marcielle</span>
-                    </button>
-                    <button class="user-btn glass-button dev-btn" data-user="Yuri">
-                        <svg class="user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="1"></circle>
-                            <path d="M12 1v6m0 6v6"></path>
-                            <path d="M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24"></path>
-                            <path d="M1 12h6m6 0h6"></path>
-                            <path d="M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"></path>
-                        </svg>
-                        <span class="user-name">Yuri (Dev)</span>
-                    </button>
-                </div>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="5" y="2" width="14" height="20" rx="3" ry="3"></rect>
+                    <line x1="12" y1="18" x2="12" y2="18"></line>
+                </svg>
+                <span class="logo-text">ByImports</span>
             </div>
-        </div>
+            <p class="header-subtitle">Avaliador de iPhone</p>
+        </header>
 
-        <!-- Painel Principal (Usuários Normais) -->
-        <div id="mainPanel" class="glass-panel main-panel" style="display: none;">
-            <div class="glass-content">
-                <div class="header-bar">
-                    <h1 class="title">Avaliação de iPhone</h1>
-                    <button id="backBtn" class="glass-button back-btn">← Voltar</button>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Device Selection Card -->
+            <section class="card device-card">
+                <div class="card-header">
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="5" y="2" width="14" height="20" rx="3" ry="3"></rect>
+                        <line x1="12" y1="18" x2="12" y2="18"></line>
+                    </svg>
+                    <h2 class="card-title">Selecione o Dispositivo</h2>
                 </div>
+                <div class="card-body">
+                    <select id="deviceSelect" class="select-input">
+                        <option value="">Escolha um modelo...</option>
+                    </select>
+                </div>
+            </section>
 
-                <div class="evaluation-container">
-                    <!-- Seleção de Dispositivo -->
-                    <div class="section glass-section">
-                        <label class="section-label">Selecione o Dispositivo</label>
-                        <select id="deviceSelect" class="glass-select">
-                            <option value="">-- Escolha um dispositivo --</option>
-                            <option value="iPhone 8G">iPhone 8G</option>
-                            <option value="iPhone 8 Plus">iPhone 8 Plus</option>
-                            <option value="iPhone X">iPhone X</option>
-                            <option value="iPhone XS">iPhone XS</option>
-                            <option value="iPhone XS Max">iPhone XS Max</option>
-                            <option value="iPhone XR">iPhone XR</option>
-                            <option value="iPhone 11">iPhone 11</option>
-                            <option value="iPhone 11 Pro">iPhone 11 Pro</option>
-                            <option value="iPhone 11 Pro Max">iPhone 11 Pro Max</option>
-                            <option value="iPhone 12">iPhone 12</option>
-                            <option value="iPhone 12 Pro">iPhone 12 Pro</option>
-                            <option value="iPhone 12 Pro Max">iPhone 12 Pro Max</option>
-                            <option value="iPhone 13">iPhone 13</option>
-                            <option value="iPhone 13 Pro">iPhone 13 Pro</option>
-                            <option value="iPhone 13 Pro Max">iPhone 13 Pro Max</option>
-                            <option value="iPhone 14">iPhone 14</option>
-                            <option value="iPhone 14 Pro">iPhone 14 Pro</option>
-                            <option value="iPhone 14 Pro Max">iPhone 14 Pro Max</option>
-                            <option value="iPhone 15">iPhone 15</option>
-                            <option value="iPhone 15 Pro">iPhone 15 Pro</option>
-                            <option value="iPhone 15 Pro Max">iPhone 15 Pro Max</option>
-                            <option value="iPhone 16">iPhone 16</option>
-                            <option value="iPhone 16 Pro">iPhone 16 Pro</option>
-                            <option value="iPhone 16 Pro Max">iPhone 16 Pro Max</option>
-                        </select>
+            <!-- Storage Selection Card -->
+            <section class="card storage-card" id="storageCard" style="display: none;">
+                <div class="card-header">
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                    </svg>
+                    <h2 class="card-title">Armazenamento</h2>
+                </div>
+                <div class="card-body">
+                    <div id="storageOptions" class="storage-grid"></div>
+                </div>
+            </section>
+
+            <!-- Current Value Display -->
+            <section class="card value-card" id="valueCard" style="display: none;">
+                <div class="value-display">
+                    <span class="value-label">Valor Atual</span>
+                    <span class="value-amount" id="currentValue">R$ 0,00</span>
+                </div>
+            </section>
+
+            <!-- Defects Selection Card -->
+            <section class="card defects-card" id="defectsCard" style="display: none;">
+                <div class="card-header">
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                    <h2 class="card-title">Defeitos / Problemas</h2>
+                </div>
+                <div class="card-body">
+                    <div id="defectsContainer" class="defects-grid"></div>
+                </div>
+            </section>
+
+            <!-- Battery Health Card -->
+            <section class="card battery-card" id="batteryCard" style="display: none;">
+                <div class="card-header">
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="6" width="18" height="12" rx="2" ry="2"></rect>
+                        <line x1="23" y1="13" x2="23" y2="11"></line>
+                    </svg>
+                    <h2 class="card-title">Saude da Bateria</h2>
+                </div>
+                <div class="card-body">
+                    <div class="battery-input-group">
+                        <input type="number" id="batteryHealth" class="input-field" min="0" max="100" placeholder="Ex: 85" value="100">
+                        <span class="battery-unit">%</span>
                     </div>
-
-                    <!-- Seleção de Memória -->
-                    <div class="section glass-section">
-                        <label class="section-label">Capacidade de Armazenamento</label>
-                        <div id="storageOptions" class="options-grid">
-                            <!-- Preenchido dinamicamente -->
-                        </div>
-                    </div>
-
-                    <!-- Valor Atual -->
-                    <div class="section glass-section value-section">
-                        <div class="value-display">
-                            <span class="value-label">Valor Atual:</span>
-                            <span class="value-amount" id="currentValue">R$ 0,00</span>
-                        </div>
-                    </div>
-
-                    <!-- Seleção de Defeitos -->
-                    <div class="section glass-section defects-section">
-                        <label class="section-label">Defeitos / Problemas</label>
-                        <div id="defectsContainer" class="defects-grid">
-                            <!-- Preenchido dinamicamente -->
-                        </div>
-                    </div>
-
-                    <!-- Saúde da Bateria -->
-                    <div class="section glass-section battery-section">
-                        <label class="section-label">Saúde da Bateria</label>
-                        <div class="battery-input-group">
-                            <input type="number" id="batteryHealth" class="glass-input battery-input" 
-                                   min="0" max="100" placeholder="% de saúde">
-                            <span class="battery-unit">%</span>
-                        </div>
-                    </div>
-
-                    <!-- Valor Final -->
-                    <div class="section glass-section final-value-section">
-                        <div class="final-value-display">
-                            <span class="value-label">Valor Final:</span>
-                            <span class="final-amount" id="finalValue">R$ 0,00</span>
-                        </div>
-                    </div>
-
-                    <!-- Resumo -->
-                    <div class="section glass-section summary-section">
-                        <label class="section-label">Resumo da Avaliação</label>
-                        <div id="summaryContent" class="summary-content">
-                            <p class="placeholder-text">Selecione um dispositivo para ver o resumo</p>
+                    <div class="battery-slider-container">
+                        <input type="range" id="batterySlider" class="battery-slider" min="0" max="100" value="100">
+                        <div class="battery-labels">
+                            <span>0%</span>
+                            <span>50%</span>
+                            <span>100%</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <!-- Painel Dev (Yuri) -->
-        <div id="devPanel" class="glass-panel dev-panel" style="display: none;">
-            <div class="glass-content">
-                <div class="header-bar">
-                    <h1 class="title"><svg style="width: 32px; height: 32px; display: inline-block; margin-right: 12px; vertical-align: middle;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><path d="M12 1v6m0 6v6"></path><path d="M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24"></path><path d="M1 12h6m6 0h6"></path><path d="M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"></path></svg> Painel do Desenvolvedor</h1>
-                    <button id="backBtnDev" class="glass-button back-btn">← Voltar</button>
+            <!-- Final Value Card -->
+            <section class="card final-card" id="finalCard" style="display: none;">
+                <div class="final-value-display">
+                    <span class="final-label">Valor Final do Aparelho</span>
+                    <span class="final-amount" id="finalValue">R$ 0,00</span>
                 </div>
+                <div class="summary-section">
+                    <div id="summaryContent" class="summary-content"></div>
+                </div>
+            </section>
 
-                <div class="dev-container">
-                    <!-- Seleção de Dispositivo -->
-                    <div class="section glass-section">
-                        <label class="section-label">Selecione o Dispositivo</label>
-                        <select id="devDeviceSelect" class="glass-select">
-                            <option value="">-- Escolha um dispositivo --</option>
-                            <option value="iPhone 8G">iPhone 8G</option>
-                            <option value="iPhone 8 Plus">iPhone 8 Plus</option>
-                            <option value="iPhone X">iPhone X</option>
-                            <option value="iPhone XS">iPhone XS</option>
-                            <option value="iPhone XS Max">iPhone XS Max</option>
-                            <option value="iPhone XR">iPhone XR</option>
-                            <option value="iPhone 11">iPhone 11</option>
-                            <option value="iPhone 11 Pro">iPhone 11 Pro</option>
-                            <option value="iPhone 11 Pro Max">iPhone 11 Pro Max</option>
-                            <option value="iPhone 12">iPhone 12</option>
-                            <option value="iPhone 12 Pro">iPhone 12 Pro</option>
-                            <option value="iPhone 12 Pro Max">iPhone 12 Pro Max</option>
-                            <option value="iPhone 13">iPhone 13</option>
-                            <option value="iPhone 13 Pro">iPhone 13 Pro</option>
-                            <option value="iPhone 13 Pro Max">iPhone 13 Pro Max</option>
-                            <option value="iPhone 14">iPhone 14</option>
-                            <option value="iPhone 14 Pro">iPhone 14 Pro</option>
-                            <option value="iPhone 14 Pro Max">iPhone 14 Pro Max</option>
-                            <option value="iPhone 15">iPhone 15</option>
-                            <option value="iPhone 15 Pro">iPhone 15 Pro</option>
-                            <option value="iPhone 15 Pro Max">iPhone 15 Pro Max</option>
-                            <option value="iPhone 16">iPhone 16</option>
-                            <option value="iPhone 16 Pro">iPhone 16 Pro</option>
-                            <option value="iPhone 16 Pro Max">iPhone 16 Pro Max</option>
-                        </select>
+            <!-- Difference Calculator Card -->
+            <section class="card difference-card" id="differenceCard" style="display: none;">
+                <div class="card-header">
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    <h2 class="card-title">Calcular Diferenca</h2>
+                </div>
+                <div class="card-body">
+                    <p class="input-description">Informe o valor do novo aparelho para calcular a diferenca:</p>
+                    <div class="difference-input-group">
+                        <span class="currency-prefix">R$</span>
+                        <input type="number" id="targetValue" class="input-field difference-input" placeholder="0,00" min="0">
                     </div>
-
-                    <!-- Preços Base -->
-                    <div class="section glass-section prices-section">
-                        <label class="section-label">Preços Base por Armazenamento</label>
-                        <div id="pricesContainer" class="prices-grid">
-                            <!-- Preenchido dinamicamente -->
+                    <div class="difference-result" id="differenceResult" style="display: none;">
+                        <div class="difference-box">
+                            <span class="difference-label">Valor a Pagar</span>
+                            <span class="difference-amount" id="differenceAmount">R$ 0,00</span>
                         </div>
-                        <button id="savePricesBtn" class="glass-button save-btn"><svg style="width: 16px; height: 16px; display: inline-block; margin-right: 8px; vertical-align: middle;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg> Salvar Preços</button>
                     </div>
+                </div>
+            </section>
 
-                    <!-- Configuração de Defeitos -->
-                    <div class="section glass-section defects-config-section">
-                        <label class="section-label">Configuração de Defeitos</label>
-                        <div id="defectsConfigContainer" class="defects-config-grid">
-                            <!-- Preenchido dinamicamente -->
-                        </div>
-                        <button id="saveDefectsBtn" class="glass-button save-btn"><svg style="width: 16px; height: 16px; display: inline-block; margin-right: 8px; vertical-align: middle;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg> Salvar Defeitos</button>
+            <!-- Installments Card -->
+            <section class="card installments-card" id="installmentsCard" style="display: none;">
+                <div class="card-header">
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                    </svg>
+                    <h2 class="card-title">Parcelamento</h2>
+                </div>
+                <div class="card-body">
+                    <!-- Fixed Installments -->
+                    <div class="installments-grid" id="installmentsGrid">
+                        <!-- 10x, 12x, 18x will be rendered here -->
                     </div>
-
-                    <!-- Configuração de Bateria por Faixas -->
-                    <div class="section glass-section battery-config-section">
-                        <label class="section-label">Descontos de Bateria por Faixa</label>
-                        <div id="batteryConfigContainer" class="battery-config-container">
-                            <!-- Preenchido dinamicamente -->
-                        </div>
-                        <button id="saveBatteryBtn" class="glass-button save-btn"><svg style="width: 16px; height: 16px; display: inline-block; margin-right: 8px; vertical-align: middle;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg> Salvar Descontos</button>
-                    </div>
-
-                    <!-- Exportar Código -->
-                    <div class="section glass-section export-section">
-                        <label class="section-label">Exportar Alterações</label>
-                        <button id="exportCodeBtn" class="glass-button export-btn"><svg style="width: 16px; height: 16px; display: inline-block; margin-right: 8px; vertical-align: middle;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><polyline points="12 15 12 3"></polyline></svg> Exportar Script.js</button>
-                    </div>
-
                     
+                    <!-- Custom Installment -->
+                    <div class="custom-installment">
+                        <label class="custom-label">Parcela Personalizada</label>
+                        <div class="custom-input-group">
+                            <input type="number" id="customInstallments" class="input-field custom-input" min="1" max="18" placeholder="Ex: 8">
+                            <span class="custom-suffix">x</span>
+                        </div>
+                        <div class="custom-result" id="customResult" style="display: none;">
+                            <div class="installment-detail">
+                                <span class="installment-count" id="customCount">8x</span>
+                                <span class="installment-value" id="customValue">R$ 0,00</span>
+                            </div>
+                            <span class="installment-total" id="customTotal">Total: R$ 0,00</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>ByImports - Todos os direitos reservados</p>
+        </footer>
     </div>
 
     <script src="script.js"></script>
