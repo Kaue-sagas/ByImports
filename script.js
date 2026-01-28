@@ -78,11 +78,11 @@ const deviceData = {
   },
   "iPhone 15 Pro": {
     storage: [128, 256, 512],
-    basePrice: { 128: 3500, 256: 3600, 512: 3600 },
+    basePrice: { 128: 3400, 256: 3600, 512: 3600 },
   },
   "iPhone 15 Pro Max": {
     storage: [256, 512, 1024],
-    basePrice: { 256: 4400, 512: 4600, 1024: 4600 },
+    basePrice: { 256: 4300, 512: 4600, 1024: 4600 },
   },
   "iPhone 16": {
     storage: [128, 256, 512],
