@@ -893,7 +893,7 @@ function calculateAndShowInstallments(difference) {
 
 // ============ UTILITY FUNCTIONS ============
 function formatCurrency(value) {
-  return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  return Math.round(value).toLocaleString("pt-BR");
 }
 
 function showCard(card) {
