@@ -901,6 +901,41 @@ function showCard(card) {
   card.classList.add("show");
 }
 
+function generatePaymentText(difference) {
+  if (difference <= 0) return "";
+
+  // Valor à vista (normal)
+  const vista = Math.round(difference);
+
+  // Parcelado com +100 no total
+  const differenceWithFee = difference + 100;
+
+  const p10 = calculateInstallment(differenceWithFee, 10);
+  const p12 = calculateInstallment(differenceWithFee, 12);
+  const p18 = calculateInstallment(differenceWithFee, 18);
+
+  return `${vista} à vista c/ desconto ou 10x ${p10.parcelaValor} / 12x ${p12.parcelaValor} / 18x ${p18.parcelaValor} 💳`;
+}
+
+if (difference > 0) {
+  const paymentText = generatePaymentText(difference);
+
+  // Criar ou atualizar campo de texto
+  let textBox = document.getElementById("paymentTextBox");
+
+  if (!textBox) {
+    textBox = document.createElement("textarea");
+    textBox.id = "paymentTextBox";
+    textBox.style.width = "100%";
+    textBox.style.marginTop = "15px";
+    textBox.style.height = "60px";
+    textBox.readOnly = true;
+    differenceCard.appendChild(textBox);
+  }
+
+  textBox.value = paymentText;
+}
+
 function hideAllCards() {
   [
     storageCard,
