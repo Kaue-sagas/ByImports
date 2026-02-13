@@ -108,6 +108,31 @@
                 </div>
             </section>
 
+            <!-- Evaluation Note Card (Current Device) -->
+            <section class="card evaluation-card" id="evaluationCard" style="display: none;">
+                <div class="card-header">
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                    <h2 class="card-title">Nota da Avaliacao</h2>
+                </div>
+                <div class="card-body">
+                    <div class="evaluation-note-box" id="evaluationNoteBox">
+                        <span class="evaluation-note-text" id="evaluationNoteText">Selecione um dispositivo...</span>
+                    </div>
+                    <button class="copy-btn" id="copyEvaluationNote" style="display: none;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copiar Nota
+                    </button>
+                </div>
+            </section>
+
             <!-- Difference Calculator Card -->
             <section class="card difference-card" id="differenceCard" style="display: none;">
                 <div class="card-header">
@@ -129,6 +154,29 @@
                             <span class="difference-amount" id="differenceAmount">R$ 0,00</span>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <!-- Copy Paste Result Card -->
+            <section class="card copy-result-card" id="copyResultCard" style="display: none;">
+                <div class="card-header">
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <h2 class="card-title">Texto para Copiar</h2>
+                </div>
+                <div class="card-body">
+                    <div class="copy-result-box" id="copyResultBox">
+                        <span class="copy-result-text" id="copyResultText"></span>
+                    </div>
+                    <button class="copy-btn" id="copyCopyResult">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copiar Texto
+                    </button>
                 </div>
             </section>
 
