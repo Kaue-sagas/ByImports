@@ -979,16 +979,14 @@ function updateCopyResultText(difference) {
     return;
   }
 
-  const totalComAcrescimo = difference + 100;
-
-  const inst10 = Math.ceil(totalComAcrescimo / 10);
-  const inst12 = Math.ceil(totalComAcrescimo / 12);
-  const inst18 = Math.ceil(totalComAcrescimo / 18);
+  const result10 = calculateInstallment(difference, 10);
+  const result12 = calculateInstallment(difference, 12);
+  const result18 = calculateInstallment(difference, 18);
 
   const vistaStr = formatCurrencyShort(difference);
-  const inst10Str = formatCurrencyShort(inst10);
-  const inst12Str = formatCurrencyShort(inst12);
-  const inst18Str = formatCurrencyShort(inst18);
+  const inst10Str = formatCurrencyShort(result10.parcelaValor);
+  const inst12Str = formatCurrencyShort(result12.parcelaValor);
+  const inst18Str = formatCurrencyShort(result18.parcelaValor);
 
   const text = `${vistaStr} \u00e0 vista c/ desconto ou 10x ${inst10Str} / 12x ${inst12Str} / 18x ${inst18Str} \uD83D\uDCB3`;
 
