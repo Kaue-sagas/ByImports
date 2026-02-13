@@ -988,7 +988,7 @@ function updateCopyResultText(difference) {
   const inst12Str = formatCurrencyShort(result12.parcelaValor);
   const inst18Str = formatCurrencyShort(result18.parcelaValor);
 
-  const text = `${vistaStr} \u00e0 vista c/ desconto ou 10x ${inst10Str} / 12x ${inst12Str} / 18x ${inst18Str} \uD83D\uDCB3`;
+  const text = `Com o seu aparelho de entrada, o restante fica ${vistaStr} \u00e0 vista c/ desconto ou 10x ${inst10Str} / 12x ${inst12Str} / 18x ${inst18Str} \uD83D\uDCB3`;
 
   copyResultText.textContent = text;
   showCard(copyResultCard);
