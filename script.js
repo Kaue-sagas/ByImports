@@ -572,6 +572,12 @@ const customResult = document.getElementById("customResult");
 const customCount = document.getElementById("customCount");
 const customValue = document.getElementById("customValue");
 const customTotal = document.getElementById("customTotal");
+const evaluationCard = document.getElementById("evaluationCard");
+const evaluationNoteText = document.getElementById("evaluationNoteText");
+const copyEvaluationNote = document.getElementById("copyEvaluationNote");
+const copyResultCard = document.getElementById("copyResultCard");
+const copyResultText = document.getElementById("copyResultText");
+const copyCopyResult = document.getElementById("copyCopyResult");
 
 // ============ INITIALIZE ============
 function init() {
@@ -604,6 +610,14 @@ function setupEventListeners() {
 
   // Custom installments
   customInstallmentsInput.addEventListener("input", handleCustomInstallments);
+
+  // Copy buttons
+  copyEvaluationNote.addEventListener("click", () => {
+    copyToClipboard(evaluationNoteText.textContent, copyEvaluationNote);
+  });
+  copyCopyResult.addEventListener("click", () => {
+    copyToClipboard(copyResultText.textContent, copyCopyResult);
+  });
 }
 
 // ============ HANDLERS ============
@@ -627,11 +641,13 @@ function handleDeviceChange(e) {
   showCard(storageCard);
   showCard(defectsCard);
   showCard(batteryCard);
+  showCard(evaluationCard);
 
   batteryHealthInput.value = 100;
   batterySlider.value = 100;
 
   calculateValue();
+  updateEvaluationNote();
 }
 
 function handleBatteryInput(e) {
@@ -781,6 +797,9 @@ function calculateValue() {
   showCard(finalCard);
   showCard(differenceCard);
 
+  // Update evaluation note
+  updateEvaluationNote();
+
   // Recalculate difference if target value is set
   if (appState.targetValue > 0) {
     calculateDifference();
@@ -826,6 +845,7 @@ function calculateDifference() {
   if (appState.targetValue <= 0) {
     differenceResult.style.display = "none";
     installmentsCard.style.display = "none";
+    copyResultCard.style.display = "none";
     return;
   }
 
@@ -837,8 +857,10 @@ function calculateDifference() {
   if (difference > 0) {
     calculateAndShowInstallments(difference);
     showCard(installmentsCard);
+    updateCopyResultText(difference);
   } else {
     installmentsCard.style.display = "none";
+    copyResultCard.style.display = "none";
   }
 }
 
@@ -891,6 +913,112 @@ function calculateAndShowInstallments(difference) {
   customResult.style.display = "none";
 }
 
+// ============ GENERATE DEVICE SHORT NAME ============
+function getDeviceShortName(device) {
+  return device
+    .replace("iPhone ", "ip ")
+    .replace(" Plus", " plus")
+    .replace(" Pro Max", " pm")
+    .replace(" Pro", " pro")
+    .replace(" Max", " max");
+}
+
+// ============ UPDATE EVALUATION NOTE ============
+function updateEvaluationNote() {
+  if (!appState.currentDevice || !appState.selectedStorage) {
+    evaluationNoteText.textContent = "Selecione um dispositivo e armazenamento...";
+    evaluationNoteText.classList.remove("has-content");
+    copyEvaluationNote.style.display = "none";
+    return;
+  }
+
+  const shortName = getDeviceShortName(appState.currentDevice);
+  const storage = appState.selectedStorage >= 1024
+    ? (appState.selectedStorage / 1024) + "tb"
+    : appState.selectedStorage + "gb";
+  const battery = "bt " + appState.batteryHealth;
+
+  // Get selected defects sorted alphabetically
+  const defects = Object.keys(appState.selectedDefects).sort((a, b) =>
+    a.localeCompare(b, "pt-BR")
+  );
+
+  let defectsStr = "";
+  if (defects.length > 0) {
+    const shortDefects = defects.map((d) =>
+      d.toLowerCase()
+        .replace("marcas de uso", "mdu")
+        .replace("tampa traseira", "tt")
+        .replace("reparo da placa", "rp")
+        .replace("dock de carga", "dock")
+        .replace("face id", "faceid")
+        .replace("vidro frontal", "vf")
+        .replace("alto falante", "af")
+        .replace("auricular", "auri")
+        .replace("camera frontal", "cf")
+        .replace("camera traseira", "ct")
+        .replace("mancha camera", "mc")
+        .replace("botao power", "bp")
+    );
+    defectsStr = " (" + shortDefects.join(", ") + ")";
+  }
+
+  const price = formatCurrencyShort(appState.finalValue);
+
+  const note = `${shortName} ${storage} ${battery}${defectsStr} ava ${price}`;
+
+  evaluationNoteText.textContent = note;
+  evaluationNoteText.classList.add("has-content");
+  copyEvaluationNote.style.display = "flex";
+}
+
+// ============ UPDATE COPY RESULT TEXT ============
+function updateCopyResultText(difference) {
+  if (difference <= 0) {
+    copyResultCard.style.display = "none";
+    return;
+  }
+
+  const totalComAcrescimo = difference + 100;
+
+  const inst10 = Math.ceil(totalComAcrescimo / 10);
+  const inst12 = Math.ceil(totalComAcrescimo / 12);
+  const inst18 = Math.ceil(totalComAcrescimo / 18);
+
+  const vistaStr = formatCurrencyShort(difference);
+  const inst10Str = formatCurrencyShort(inst10);
+  const inst12Str = formatCurrencyShort(inst12);
+  const inst18Str = formatCurrencyShort(inst18);
+
+  const text = `${vistaStr} \u00e0 vista c/ desconto ou 10x ${inst10Str} / 12x ${inst12Str} / 18x ${inst18Str} \uD83D\uDCB3`;
+
+  copyResultText.textContent = text;
+  showCard(copyResultCard);
+}
+
+// ============ COPY TO CLIPBOARD ============
+function copyToClipboard(text, button) {
+  navigator.clipboard.writeText(text).then(() => {
+    const originalHTML = button.innerHTML;
+    button.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+      Copiado!
+    `;
+    button.classList.add("copied");
+    setTimeout(() => {
+      button.innerHTML = originalHTML;
+      button.classList.remove("copied");
+    }, 2000);
+  });
+}
+
+// ============ FORMAT CURRENCY SHORT ============
+function formatCurrencyShort(value) {
+  return "R$" + value.toLocaleString("pt-BR");
+}
+
 // ============ UTILITY FUNCTIONS ============
 function formatCurrency(value) {
   return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
@@ -908,7 +1036,9 @@ function hideAllCards() {
     defectsCard,
     batteryCard,
     finalCard,
+    evaluationCard,
     differenceCard,
+    copyResultCard,
     installmentsCard,
   ].forEach((card) => {
     card.style.display = "none";
