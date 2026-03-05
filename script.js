@@ -1,4 +1,5 @@
 // ============ DADOS DOS APARELHOS ============
+
 const deviceData = {
   "iPhone 8": {
     storage: [64, 128, 256],
@@ -866,8 +867,10 @@ function calculateDifference() {
 
 // ============ CALCULATE INSTALLMENT ============
 function calculateInstallment(value, parcelas) {
+  // Adiciona 100 ao valor antes de calcular os juros
+  const valueWithAdditional = value + 100;
   const multiplier = installmentMultipliers[parcelas];
-  const totalComJuros = value * multiplier;
+  const totalComJuros = valueWithAdditional * multiplier;
   const parcelaCalculada = totalComJuros / parcelas;
 
   // Arredondar para cima para inteiro
