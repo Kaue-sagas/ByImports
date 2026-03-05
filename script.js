@@ -868,7 +868,7 @@ function calculateDifference() {
 // ============ CALCULATE INSTALLMENT ============
 function calculateInstallment(value, parcelas) {
   // Adiciona 100 ao valor antes de calcular os juros
-  const valueWithAdditional = value + 100;
+  const valueWithAdditional = value + 200;
   const multiplier = installmentMultipliers[parcelas];
   const totalComJuros = valueWithAdditional * multiplier;
   const parcelaCalculada = totalComJuros / parcelas;
